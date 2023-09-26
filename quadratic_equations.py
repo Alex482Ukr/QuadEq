@@ -2,7 +2,7 @@ from math import sqrt
 from fractions import Fraction as Frc
 from decimal import Decimal as Dec
 
-VERSION = '1.10.1-002' 
+VERSION = '1.10.1-003' 
 
 def discriminant(a, b, c, func=Dec, full_output=False):      # Пошук коренів через дискримінант
     a, b, c = map(func, (a, b, c))
@@ -13,7 +13,7 @@ def discriminant(a, b, c, func=Dec, full_output=False):      # Пошук кор
 
     if D > 0:   # Перевірка дискримінанту
         Dsqrt = func(str(sqrt(D)))
-        output['Dsqrt'] = Dsqrt
+        output['Dsqrt'] = str(Dsqrt).strip('.0')
 
         x1 = (-b + Dsqrt) / (2*a)
         x2 = (-b - Dsqrt) / (2*a)
