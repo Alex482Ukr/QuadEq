@@ -33,7 +33,7 @@ def discriminant(a, b, c, func=Dec, full_output=False):      # Пошук кор
 
 def print_res(res, var='x'):    # Виведення результатів у консоль
     print('\nD =', res['discr'])
-    print('√D =', str(res['Dsqrt']))
+    print('√D =', str(res['Dsqrt']).strip('.0'))
 
     if len(res['Xs']) == 2:
         print(f'{var}1 =', str(res['Xs'][0]).strip('.0'))
