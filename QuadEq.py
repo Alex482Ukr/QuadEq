@@ -2,7 +2,7 @@ from math import sqrt
 from fractions import Fraction as Frc
 from decimal import Decimal as Dec
 
-VERSION = '1.10.1-004' 
+VERSION = '1.10.2-001' 
 
 def discriminant(a, b, c, func=Dec, full_output=False):      # Пошук коренів через дискримінант
     a, b, c = map(func, (a, b, c))
@@ -33,13 +33,13 @@ def discriminant(a, b, c, func=Dec, full_output=False):      # Пошук кор
 
 def print_res(res, var='x'):    # Виведення результатів у консоль
     print('\nD =', res['discr'])
-    print('√D =', str(res['Dsqrt']).strip('.0'))
+    print('√D =', str(res['Dsqrt']).rstrip('.0'))
 
     if len(res['Xs']) == 2:
-        print(f'{var}1 =', str(res['Xs'][0]).strip('.0'))
-        print(f'{var}2 =', str(res['Xs'][1]).strip('.0'))
+        print(f'{var}1 =', str(res['Xs'][0]).rstrip('.0'))
+        print(f'{var}2 =', str(res['Xs'][1]).rstrip('.0'))
     elif len(res['Xs']) == 1:
-        print('x =', str(res['Xs'][0]).strip('.0'))
+        print('x =', str(res['Xs'][0]).rstrip('.0'))
     else:
         print('Немає коренів')
 
@@ -54,9 +54,9 @@ def to_multipliers(a, xs, var='x'):     # Функція розкладання 
         
     for x in xs:    # Перші та другі дужки в залежності від коренів рівняння
         if x>0:
-            output = output + f'({var} - {str(x).strip(".0")})'
+            output = output + f'({var} - {str(x).rstrip(".0")})'
         elif x<0:
-            output = output + f'({var} + {str(abs(x)).strip(".0")})'
+            output = output + f'({var} + {str(abs(x)).rstrip(".0")})'
         else:
             output = output + var
     
